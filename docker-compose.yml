@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  yacht:
+    image: selfhostedpro/yacht
+    restart: unless-stopped
+    container_name: yacht_co
+    ports:
+      - 8000:8000
+    volumes:
+      - yacht:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PUID=0
+      - PGID=0
+volumes:
+  yacht:
