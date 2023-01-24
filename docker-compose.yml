@@ -3,7 +3,7 @@ services:
   yacht:
     image: selfhostedpro/yacht
     restart: unless-stopped
-    container_name: yacht_co
+    container_name: Yacht
     ports:
       - 8000:8000
     volumes:
