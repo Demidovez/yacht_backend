@@ -1,16 +1,17 @@
 version: "3.3"
 services:
   yacht:
-    image: selfhostedpro/yacht
+    build: .
+    image: yacht
     restart: unless-stopped
     container_name: Yacht
+    # command: "apk add docker-cli"
     ports:
       - 8000:8000
     volumes:
-      - yacht:/config
+      - ./yacht:/config
+      - ../:/config/compose
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - PUID=0
       - PGID=0
-volumes:
-  yacht:
